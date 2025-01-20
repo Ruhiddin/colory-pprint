@@ -1,16 +1,16 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="logger-utils",
+    name="colory-pprint",
     version="1.0.0",
-    description="An advanced color-coded JSON logger for Python.",
+    description="A color-coded JSON pretty printer for Python.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     author="Ruhiddin",
     author_email="your-email@example.com",
-    url="https://github.com/yourusername/logger-utils",  # Replace with your GitHub repo URL
+    url="https://github.com/yourusername/colory-pprint",  # Replace with your GitHub repo URL
     license="MIT",
-    packages=find_packages(exclude=["tests"]),
+    packages=find_packages(),
     install_requires=[
         "termcolor",
     ],
