@@ -13,14 +13,14 @@
 You can install the package via `pip` from the GitHub repository:
 
 ```bash
-pip install git+https://github.com/your-username/colory_pprint.git
+pip install git+https://github.com/ruhiddin/colory-pprint.git
 ```
 
 Alternatively, you can clone the repository and install manually:
 
 ```bash
-git clone https://github.com/your-username/colory_pprint.git
-cd colory_pprint
+git clone https://github.com/your-username/colory-pprint.git
+cd colory-pprint
 pip install .
 ```
 
@@ -29,9 +29,9 @@ pip install .
 ### Basic Usage:
 
 ```python
-from colory_pprint import ColoryLogger
+from colory_pprint import ColoryPPrint
 
-log = ColoryLogger()
+log = ColoryPPrint()
 
 log({"message": "Hello, World!"})
 ```
@@ -91,7 +91,7 @@ The output will show:
 You can enable debug mode to print raw JSON data:
 
 ```python
-log = ColoryLogger(debug=True)
+log = ColoryPPrint(debug=True)
 log({"message": "Debug mode enabled!"})
 ```
 
