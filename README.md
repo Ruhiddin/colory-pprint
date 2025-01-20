@@ -17,6 +17,12 @@ You can install the package via `pip` from the GitHub repository:
 pip install git+https://github.com/ruhiddin/colory-pprint.git
 ```
 
+Also , you can install it via `pip` from PyPI:
+
+```bash
+pip install colory_pprint
+```
+
 Alternatively, you can clone the repository and install manually:
 
 ```bash
@@ -89,7 +95,7 @@ The output will show:
 
 ### Debug Mode:
 
-You can enable debug mode to print raw JSON data:
+Pass `debug=True` to the logger to enable debug mode because by default it is False so you won't see any logs. (Do not forget to set it to False in Production):
 
 ```python
 log = ColoryPPrint(debug=True)

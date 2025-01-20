@@ -1,5 +1,5 @@
 import unittest
-from colory_pprint.colory_pprint import ColoryPPrint
+from colory_pprint import ColoryPPrint
 
 class TestColoryPPrint(unittest.TestCase):
     def test_basic_logging(self):

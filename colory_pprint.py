@@ -61,7 +61,7 @@ class ColoryPPrint:
         """Allow direct logging by calling the log object."""
         self._log(data, force)
 
-    def __getattr__(self, name: str) -> "AdvancedLogger":
+    def __getattr__(self, name: str) -> "ColoryPPrint":
         """
         Dynamically handle chaining of colors, backgrounds, and styles.
 
