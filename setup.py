@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="colory-pprint",
-    version="1.2.0",
+    version="1.3.0",
     description="A color-coded JSON pretty printer for Python.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
@@ -11,6 +11,7 @@ setup(
     url="https://github.com/Ruhiddin/colory-pprint",
     license="MIT",
     packages=find_packages(),
+    py_modules=['colory_pprint'],
     install_requires=[
         "termcolor",
     ],
