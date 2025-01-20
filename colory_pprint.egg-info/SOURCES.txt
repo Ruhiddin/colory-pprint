@@ -3,8 +3,6 @@ MANIFEST.in
 README.md
 setup.cfg
 setup.py
-colory_pprint/__init__.py
-colory_pprint/colory_pprint.py
 colory_pprint.egg-info/PKG-INFO
 colory_pprint.egg-info/SOURCES.txt
 colory_pprint.egg-info/dependency_links.txt

@@ -1,6 +1,6 @@
 Metadata-Version: 2.2
 Name: colory-pprint
-Version: 1.0.0
+Version: 1.1.0
 Summary: A color-coded JSON pretty printer for Python.
 Home-page: https://github.com/Ruhiddin/colory-pprint
 Author: Ruhiddin
@@ -29,6 +29,7 @@ Dynamic: summary
 **Colory PPrint** is a Python logging package that outputs color-coded and formatted JSON logs. It allows for easy-to-read logs with foreground and background color customizations, text styles (like bold, underline), and ensures that even non-serializable objects are logged correctly.
 
 ## Features:
+
 - Color-coded JSON logs with support for foreground and background colors.
 - Supports various text styles such as bold, underline, reverse, and concealed.
 - Customizable logging for Python applications, ideal for debugging and data visualization.
@@ -42,10 +43,16 @@ You can install the package via `pip` from the GitHub repository:
 pip install git+https://github.com/ruhiddin/colory-pprint.git
 ```
 
+Also , you can install it via `pip` from PyPI:
+
+```bash
+pip install colory_pprint
+```
+
 Alternatively, you can clone the repository and install manually:
 
 ```bash
-git clone https://github.com/your-username/colory-pprint.git
+git clone https://github.com/ruhiddin/colory-pprint.git
 cd colory-pprint
 pip install .
 ```
@@ -84,7 +91,7 @@ class CustomObject:
 custom_obj = CustomObject(name="Test", value=100)
 
 log.red.bold({
-    "status": "error", 
+    "status": "error",
     "message": "An error occurred!",
     "object": custom_obj
 })
@@ -94,9 +101,9 @@ The output will show:
 
 ```json
 {
-   "status": "error",
-   "message": "An error occurred!",
-   "object": "<CustomObject object at 0x7f8a3f8b93d0>"
+  "status": "error",
+  "message": "An error occurred!",
+  "object": "<CustomObject object at 0x7f8a3f8b93d0>"
 }
 ```
 
@@ -114,7 +121,7 @@ The output will show:
 
 ### Debug Mode:
 
-You can enable debug mode to print raw JSON data:
+Pass `debug=True` to the logger to enable debug mode because by default it is False so you won't see any logs. (Do not forget to set it to False in Production):
 
 ```python
 log = ColoryPPrint(debug=True)
