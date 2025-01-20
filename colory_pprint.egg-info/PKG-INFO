@@ -1,6 +1,6 @@
 Metadata-Version: 2.2
 Name: colory-pprint
-Version: 1.1.0
+Version: 1.2.0
 Summary: A color-coded JSON pretty printer for Python.
 Home-page: https://github.com/Ruhiddin/colory-pprint
 Author: Ruhiddin
