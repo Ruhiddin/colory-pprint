@@ -99,4 +99,19 @@ log({"message": "Debug mode: ON! See everything in style."})
 
 _(Just remember to switch it off in production, unless you want your logs to throw a party.)_
 
+
+#### Custom `end` Argument – Control Output Suffix
+
+You can now pass an optional `end` parameter to any log call to replace the default newline (`\n`) with any string (or no string at all). This is useful for:
+
+- Logging multiple JSON objects on the **same line**
+- Adding **custom separators** (e.g., `", "`, `" | "`)
+- Suppressing newlines entirely (`end=""`)
+- Building structured output streams
+
+##### Syntax
+```python
+log(data, end="your_custom_string")
+
+
 Now go on, add some color to those logs, and make debugging feel like a breeze!
