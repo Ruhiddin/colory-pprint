@@ -1,10 +1,10 @@
 import json
 from termcolor import colored
-from typing import Any
+from typing import Any, Optional
 
 class ColoryPPrint:
     """
-    ColoryPPrint for color-coded JSON logging.
+    ColoryPPrint for color-coded JSON logging with customizable end character.
 
     Available foreground colors:
         black, red, green, yellow, blue, magenta, cyan, white,
@@ -21,29 +21,31 @@ class ColoryPPrint:
         bold, underline, reverse, concealed.
 
     Example usage:
-        log.red.bold({"status": "error", "message": "An error occurred!"})
+        log.red.bold({"status": "error", "message": "An error occurred!"}, end=" ")
         log.green.on_black.underline({"status": "success", "message": "Operation successful."})
-        log({"message": "Default logging with cyan."})
+        log({"message": "Default logging with cyan."}, end="")
     """
 
-    def __init__(self, debug: bool=False):
+    def __init__(self, debug: bool = False):
         self.fg = 'cyan'  # Default foreground color
         self.bg = None    # Default background color
         self.attrs = []   # Default styles
+        self.end = "\n"   # Default end character
         self.debug = debug
 
     def _reset(self):
-        """Reset styles to defaults after logging."""
+        """Reset styles and end to defaults after logging."""
         self.fg = 'cyan'
         self.bg = None
         self.attrs = []
+        self.end = "\n"
 
     def _apply_formatting(self, text: str) -> str:
         """Apply formatting based on current styles."""
         return colored(text, self.fg, self.bg, attrs=self.attrs)
 
-    def _log(self, data: Any, force: bool):
-        """Dump data as JSON and apply formatting."""
+    def _log(self, data: Any, force: bool, end: Optional[str]):
+        """Dump data as JSON, apply formatting, and print with custom end."""
         def custom_serializer(obj: Any) -> str:
             """Handle non-serializable objects by returning their `repr`."""
             try:
@@ -51,16 +53,17 @@ class ColoryPPrint:
             except TypeError:
                 # Use the `repr()` for non-serializable objects
                 return f"<{type(obj).__name__} object at {hex(id(obj))}>"
-            
+        
         json_data = json.dumps(data, default=custom_serializer, indent=3, ensure_ascii=False)
         if self.debug or force:
-            print(self._apply_formatting(json_data))
+            print(self._apply_formatting(json_data), end=end)
         self._reset()
 
-    def __call__(self, data: Any, force: bool=False):
-        """Allow direct logging by calling the log object."""
-        self._log(data, force)
-
+    def __call__(self, data: Any, force: bool = False, end: Optional[str] = "\n"):
+        """Allow direct logging by calling the log object with optional end."""
+        self.end = end  # Temporarily store for this call
+        self._log(data, force, end)
+    
     def __getattr__(self, name: str) -> "ColoryPPrint":
         """
         Dynamically handle chaining of colors, backgrounds, and styles.
